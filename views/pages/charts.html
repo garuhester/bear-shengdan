@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>井井圣诞页面统计-图表</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script src="/js/echarts.common.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        #main {
+            padding: 20px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main" style="height:70%"></div>
+    <script>
+        getUserList();
+        function getUserList() {
+            $.ajax({
+                method: 'post',
+                url: '/getChartsData',
+                success: function (data) {
+                    var xAxis = [];
+                    var names = [];
+                    var series = [];
+                    for (var i = 0; i < data.result.length; i++) {
+                        var result = data.result[i];
+                        if (xAxis.indexOf(result.clickTime) == -1) {
+                            xAxis.push(result.clickTime);
+                        }
+                        if (names.indexOf(result.name) == -1) {
+                            names.push(result.name);
+                        }
+                    }
+                    for (var i = 0; i < names.length; i++) {
+                        var arr = [];
+                        for (var j = 0; j < xAxis.length; j++) {
+                            for (var z = 0; z < data.result.length; z++) {
+                                var result = data.result[z];
+                                if (names[i] == result.name && result.clickTime == xAxis[j]) {
+                                    arr[j] = result.number;
+                                    break;
+                                }
+                            }
+                        }
+                        var temp = false;
+                        for (var p = 0; p < arr.length; p++) {
+                            if (arr[p] != 0) {
+                                temp = true;
+                            }
+                        }
+                        if (temp) {
+                            series.push({
+                                name: names[i],
+                                type: "line",
+                                data: arr,
+                                label: seriesLabel
+                            });
+                        }
+                    }
+
+                    console.log(series);
+
+                    myChart.setOption({ //加载数据图表
+                        xAxis: {
+                            data: xAxis,
+                        },
+                        series: series
+                    });
+                }
+            });
+        }
+        var myChart = echarts.init(document.getElementById('main'));
+        var xArr = [];
+        var yArr = [];
+        var seriesLabel = {
+            show: true, //是否展示
+            position: 'top',
+            textStyle: {
+                fontWeight: 'bolder',
+                fontSize: '12',
+                fontFamily: '微软雅黑',
+                color: "#646464"
+            }
+        };
+        var option = {
+            title: {
+                text: "井井圣诞页面统计-图表"
+            },
+            tooltip: {
+                trigger: 'axis',
+                formatter: function (params) {
+                    var relVal = params[0].name;
+                    for (var i = 0, l = params.length; i < l; i++) {
+                        relVal += '<br/>' + `<div style="background:${params[i].color};height:10px;width:10px;border-radius:50%;display:inline-block"></div> ` + params[i].seriesName +  ' : ' + params[i].value + "次";
+                    }
+                    return relVal;
+                }
+            },
+            legend: {
+                type: 'scroll',
+                orient: 'vertical',
+                right: 10,
+                top: 10,
+            },
+            xAxis: {
+                data: xArr
+            },
+            yAxis: {},
+            series: [],
+            dataZoom: [
+                {
+                    show: true,
+                    realtime: true,
+                    start: 0,
+                    end: 80
+                },
+                {
+                    type: 'inside',
+                    realtime: true,
+                    start: 0,
+                    end: 80
+                }
+            ]
+        }
+        myChart.setOption(option);
+    </script>
+</body>
+
+</html>
