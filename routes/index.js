@@ -15,6 +15,9 @@ module.exports = function (app) {
     app.get("/video", function (req, res) {
         res.render("video");
     });
+    app.get("/yuandan", function (req, res) {
+        res.render("yuandan");
+    });
     app.get("/charts", function (req, res) {
         res.render("charts");
     });
