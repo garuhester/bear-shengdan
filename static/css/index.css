@@ -1,1 +1,467 @@
-@font-face{font-family:list-title;src:url(/font/hanyi.ttf)}body,html{padding:0;margin:0;background:#eae8e9}.tag{overflow:hidden}.tag .banner{position:absolute;width:100%;z-index:0}.tag .banner .bimg{width:100%;height:250px;-o-object-fit:cover;object-fit:cover}.tag .banner .closebox{position:absolute;top:15px;right:15px;width:30px;height:30px;-webkit-transform:scale(.6);transform:scale(.6);background-image:url(/img/close.png);background-size:100%}.tag .banner .closebox:active{background-image:url(/img/close-active.png)}.tag .banner .title{position:absolute;font-size:1.28rem;top:8%;left:50%;-webkit-transform:translate(-50%,0);transform:translate(-50%,0)}.tag .lists{position:absolute;top:170px;left:50%;-webkit-transform:translate(-50%,0);transform:translate(-50%,0);width:93%;margin-bottom:50px}.tag .lists .list{position:relative;width:100%;background:#fff;border-radius:10px;margin-top:13px}.tag .lists .list .title{text-align:center;font-size:1.2rem;padding-top:20px;padding-bottom:15px;font-family:list-title}.tag .lists .list .detail{font-size:.87rem;color:#999;position:relative;padding-bottom:7px;overflow:hidden}.tag .lists .list .detail:after{content:'';position:absolute;display:block;width:90%;height:1px;bottom:0;left:50%;-webkit-transform:translate(-50%,0);transform:translate(-50%,0);background:#ddd}.tag .lists .list .detail .date{float:left;margin-left:7%}.tag .lists .list .detail .des{float:right;margin-right:7%}.tag .lists .list .child-tags .child-tag{position:relative}.child-tag .one,.sd-child-tag .one{padding:15px;-webkit-box-sizing:border-box;box-sizing:border-box;text-align:center;position:relative;font-size:0}.child-tag .one:after,.sd-child-tag .one:after{content:'';position:absolute;display:block;width:90%;height:1px;bottom:0;left:50%;-webkit-transform:translate(-50%,0);transform:translate(-50%,0);background:#ddd}.child-tag .one img,.sd-child-tag .one img{width:90%;-webkit-transition:all .3s;transition:all .3s}@media (min-width:500px){.child-tag .one img,.sd-child-tag .one img{width:80%}}@media (min-width:900px){.child-tag .one img,.sd-child-tag .one img{width:70%}}.child-tag .two,.sd-child-tag .two{font-size:0;text-align:right;height:40px;padding:15px;overflow:hidden}.child-tag .two img,.sd-child-tag .two img{height:100%;margin-right:10px}.child-tag .two .stick{background-image:url(/img/stick.png);background-repeat:no-repeat;background-size:100% 100%;-webkit-background-size:100% 100%;-moz-background-size:100% 100%;-o-background-size:100% 100%;width:80px;height:40px;float:right}.child-tag .two .stick:active{background-image:url(/img/stick-active.png)}.shengdan .two{height:auto}.shengdan .two .sd{overflow:hidden;height:43px;padding-left:20px;padding-right:20px;margin-bottom:20px}.shengdan .two .sd .left{float:left;height:100%}.shengdan .two .sd .right{overflow:hidden;height:100%;font-size:16px;text-align:left}.shengdan .two .sd .right div{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}.shengdan .two .sd .right .r1{color:#3a3d3d;font-weight:700}.shengdan .two .sd .right .r2{color:#989898}.shengdan .snow1{position:absolute;top:-7px;left:-7px;width:65px;z-index:5}.shengdan .snow2{position:absolute;top:-11px;right:-8px;width:53px;z-index:5}.shengdan .bell{position:absolute;top:-32px;right:0;width:67px;z-index:6}.shengdan .gold{position:absolute;top:20px;left:-3px;width:47%;z-index:1}.shengdan .color{height:100%}.shengdan .color .up{position:absolute;top:-3px;left:0;width:100%;z-index:3;height:7px}.shengdan .color .right{position:absolute;top:0;right:4px;width:10px;height:95%;z-index:3}.shengdan .color .down{position:absolute;bottom:17px;left:50%;width:89%;z-index:3;height:7px;-webkit-transform:translate(-50%,0);transform:translate(-50%,0)}.shengdan .color .left{position:absolute;top:0;left:5px;height:95%;width:10px;z-index:3}.shengdan .color img{height:100%}.shengdan .thing img{width:100%}
+@font-face {
+    font-family: list-title;
+    src: url(../font/hanyi.ttf)
+}
+
+body,
+html {
+    padding: 0;
+    margin: 0;
+    background: #eae8e9
+}
+
+.tag {
+    overflow: hidden
+}
+
+.tag .banner {
+    position: absolute;
+    width: 100%;
+    z-index: 0
+}
+
+.tag .banner .bimg {
+    width: 100%;
+    height: 250px;
+    -o-object-fit: cover;
+    object-fit: cover
+}
+
+.tag .banner .closebox {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 30px;
+    height: 30px;
+    -webkit-transform: scale(.6);
+    transform: scale(.6);
+    background-image: url(../img/close.png);
+    background-size: 100%
+}
+
+.tag .banner .closebox:active {
+    background-image: url(../img/close-active.png)
+}
+
+.tag .banner .title {
+    position: absolute;
+    font-size: 1.28rem;
+    top: 8%;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0)
+}
+
+.tag .lists {
+    position: absolute;
+    top: 170px;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    width: 93%;
+    margin-bottom: 50px
+}
+
+.tag .lists .list {
+    position: relative;
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    margin-top: 13px
+}
+
+.tag .lists .list .title {
+    text-align: center;
+    font-size: 1.2rem;
+    padding-top: 20px;
+    padding-bottom: 15px;
+    font-family: list-title;
+}
+
+.tag .lists .list .detail {
+    font-size: .87rem;
+    color: #999;
+    position: relative;
+    padding-bottom: 7px;
+    overflow: hidden
+}
+
+.tag .lists .list .detail:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 90%;
+    height: 1px;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    background: #ddd
+}
+
+.tag .lists .list .detail .date {
+    float: left;
+    margin-left: 7%
+}
+
+.tag .lists .list .detail .des {
+    float: right;
+    margin-right: 7%
+}
+
+.tag .lists .list .child-tags .child-tag {
+    position: relative
+}
+
+.child-tag .one,
+.sd-child-tag .one {
+    padding: 15px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    position: relative;
+    font-size: 0
+}
+
+.child-tag .one:after,
+.sd-child-tag .one:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 90%;
+    height: 1px;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+    background: #ddd
+}
+
+.child-tag .one img,
+.sd-child-tag .one img {
+    width: 90%;
+    -webkit-transition: all .3s;
+    transition: all .3s
+}
+
+@media (min-width:500px) {
+    .child-tag .one img,
+    .sd-child-tag .one img {
+        width: 80%
+    }
+}
+
+@media (min-width:900px) {
+    .child-tag .one img,
+    .sd-child-tag .one img {
+        width: 70%
+    }
+}
+
+.child-tag .two,
+.sd-child-tag .two {
+    font-size: 0;
+    text-align: right;
+    height: 40px;
+    padding: 15px;
+    overflow: hidden
+}
+
+.child-tag .two img,
+.sd-child-tag .two img {
+    height: 100%;
+    margin-right: 10px
+}
+
+.child-tag .two .stick {
+    background-image: url(../img/stick.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    width: 80px;
+    height: 40px;
+    float: right
+}
+
+.child-tag .two .stick:active {
+    background-image: url(../img/stick-active.png)
+}
+
+.shengdan .two,
+.yuandan .two {
+    height: auto
+}
+
+.shengdan .two .sd {
+    overflow: hidden;
+    height: 43px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 20px
+}
+
+.shengdan .two .sd .left,
+.yuandan .two .sd .left {
+    float: left;
+    height: 100%
+}
+
+.shengdan .two .sd .right,
+.yuandan .two .sd .right {
+    overflow: hidden;
+    height: 100%;
+    font-size: 16px;
+    text-align: left
+}
+
+.shengdan .two .sd .right div {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+
+.shengdan .two .sd .right .r1,
+.yuandan .two .sd .right .r1 {
+    color: #3a3d3d;
+    font-weight: 700
+}
+
+.shengdan .two .sd .right .r2,
+.yuandan .two .sd .right .r2 {
+    color: #989898
+}
+
+.shengdan .snow1,
+.yuandan .snow1 {
+    position: absolute;
+    top: -7px;
+    left: -7px;
+    width: 65px;
+    z-index: 5
+}
+
+.shengdan .snow2,
+.yuandan .snow2 {
+    position: absolute;
+    top: -11px;
+    right: -8px;
+    width: 53px;
+    z-index: 5
+}
+
+.shengdan .bell,
+.yuandan .bell {
+    position: absolute;
+    top: -32px;
+    right: 0;
+    width: 67px;
+    z-index: 6
+}
+
+.shengdan .gold,
+.yuandan .gold {
+    position: absolute;
+    top: 20px;
+    left: -3px;
+    width: 47%;
+    z-index: 1
+}
+
+.shengdan .color {
+    height: 100%
+}
+
+.shengdan .color .up {
+    position: absolute;
+    top: -3px;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    height: 7px
+}
+
+.shengdan .color .right {
+    position: absolute;
+    top: 0;
+    right: 4px;
+    width: 10px;
+    height: 95%;
+    z-index: 3
+}
+
+.shengdan .color .down {
+    position: absolute;
+    bottom: 17px;
+    left: 50%;
+    width: 89%;
+    z-index: 3;
+    height: 7px;
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0)
+}
+
+.shengdan .color .left {
+    position: absolute;
+    top: 0;
+    left: 5px;
+    height: 95%;
+    width: 10px;
+    z-index: 3
+}
+
+.shengdan .color img {
+    height: 100%
+}
+
+.shengdan .thing img {
+    width: 100%
+}
+
+.yuandan .color {
+    height: 100%
+}
+
+.yuandan .color .up {
+    position: absolute;
+    top: 10px;
+    left: 25px;
+    right: 25px;
+    z-index: 3;
+    font-size: 0;
+    height: 4px;
+}
+
+.yuandan .color .down {
+    position: absolute;
+    bottom: 10px;
+    left: 25px;
+    right: 25px;
+    z-index: 3;
+    font-size: 0;
+    height: 4px;
+}
+
+.yuandan .color .left {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 10px;
+    z-index: 3;
+    font-size: 0;
+    width: 4px;
+}
+
+.yuandan .color .right {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 9px;
+    z-index: 3;
+    font-size: 0;
+    width: 4px;
+}
+
+.yuandan .color .left img,
+.yuandan .color .right img {
+    height: 83%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+}
+
+@media (min-width:500px) {
+    .yuandan .color .left img,
+    .yuandan .color .right img {
+        height: 84%;
+    }
+}
+
+@media (min-width:900px) {
+    .yuandan .color .left img,
+    .yuandan .color .right img {
+        height: 86%;
+    }
+}
+
+.yuandan .color .b1 {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 3;
+    font-size: 0;
+    width: 17px;
+    height: 17px;
+}
+
+.yuandan .color .b2 {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 3;
+    font-size: 0;
+    width: 17px;
+    height: 17px;
+}
+
+.yuandan .color .b3 {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 3;
+    font-size: 0;
+    width: 17px;
+    height: 17px;
+}
+
+.yuandan .color .b4 {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 3;
+    font-size: 0;
+    width: 17px;
+    height: 17px;
+}
+
+.yuandan .color .left-dl {
+    position: absolute;
+    bottom: 23%;
+    left: -8px;
+    z-index: 5;
+    font-size: 0;
+    width: 40px;
+}
+
+.yuandan .color .right-dl {
+    position: absolute;
+    bottom: 23%;
+    right: -8px;
+    z-index: 5;
+    font-size: 0;
+    width: 40px;
+}
+
+.yuandan .thing img {
+    width: 100%;
+    height: 100%;
+}
+
+.yuandan .two .sd {
+    overflow: hidden;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 15px;
+    padding-top: 5px;
+    position: relative;
+}
+
+.yuandan .sd-child-tag .two img {
+    height: 55px;
+}
+
+.yuandan .two .sd .right {
+    margin-top: 10px;
+}
