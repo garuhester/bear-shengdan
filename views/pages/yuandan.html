@@ -58,8 +58,7 @@
                 </div>
             </div>
             <div class="shop">
-                <!-- <img onclick="openUrl('https://h5.m.taobao.com/awp/core/detail.htm?id=581221952213', 1, '商城');" src="/yuandan/img/shop.png"> -->
-                <img onclick="openUrl('http://vip100.ltd/P908Qjw', 1, '商城');" src="/yuandan/img/shop.png">
+                <img src="/yuandan/img/shop.png">
             </div>
         </div>
     </div>
@@ -72,6 +71,13 @@
         if (type == "APP") {
             $(".backmain").css("display", "block");
             // $(".backmain").remove();
+            $(".shop img").click(function () {
+                openUrl('https://h5.m.taobao.com/awp/core/detail.htm?id=581221952213', 1, '商城');
+            });
+        } else {
+            $(".shop img").click(function () {
+                openUrl('http://vip100.ltd/P908Qjw', 1, '商城');
+            });
         }
         openUrl('', 0, type + '进入 - 元旦视频');
     </script>
