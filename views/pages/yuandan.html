@@ -70,9 +70,15 @@
         var type = wechat.indexOf('MicroMessenger') == -1 ? "APP" : "微信";
         if (type == "APP") {
             $(".backmain").css("display", "block");
-            // $(".backmain").remove();
+            var u = navigator.userAgent;
+            var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+            var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
             $(".shop img").click(function () {
-                openUrl('https://h5.m.taobao.com/awp/core/detail.htm?id=581221952213', 1, '商城');
+                if (isAndroid) {
+                    window.webView.callTaobao("581221952213");
+                } else if (isiOS) {
+                    openUrl('https://h5.m.taobao.com/awp/core/detail.htm?id=581221952213', 1, '商城');
+                }
             });
         } else {
             $(".shop img").click(function () {
