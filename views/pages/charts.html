@@ -51,6 +51,8 @@
                                 if (names[i] == result.name && result.clickTime == xAxis[j]) {
                                     arr[j] = result.number;
                                     break;
+                                } else {
+                                    arr[j] = 0;
                                 }
                             }
                         }
@@ -103,7 +105,7 @@
                 formatter: function (params) {
                     var relVal = params[0].name;
                     for (var i = 0, l = params.length; i < l; i++) {
-                        relVal += '<br/>' + `<div style="background:${params[i].color};height:10px;width:10px;border-radius:50%;display:inline-block"></div> ` + params[i].seriesName +  ' : ' + params[i].value + "次";
+                        relVal += '<br/>' + `<div style="background:${params[i].color};height:10px;width:10px;border-radius:50%;display:inline-block"></div> ` + params[i].seriesName + ' : ' + params[i].value + "次";
                     }
                     return relVal;
                 }
